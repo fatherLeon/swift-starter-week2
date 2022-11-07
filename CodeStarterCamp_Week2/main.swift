@@ -51,14 +51,8 @@ func checkMyLottoNumber(myLottoNumbers: [Int]) {
 func makeLottoDictonary() -> [String: Set<Int>] {
     var lottoDictonary: [String: Set<Int>] = [:]
     
-    for _ in 1...5 {
-        if let round = Array(lottoDictonary.keys.sorted()).last {
-            if let beforeRound = Int(round.components(separatedBy: "회")[0]) {
-                lottoDictonary["\(beforeRound+1)회차"] = makeLottoNumber()
-            }
-        } else {
-            lottoDictonary["1회차"] = makeLottoNumber()
-        }
+    for round in 1...5 {
+        lottoDictonary["\(round)회차"] = makeLottoNumber()
     }
     
     return lottoDictonary
@@ -78,4 +72,4 @@ func checkRoundLottoNumber(round: Int) {
     printRoundCorrectNumber(round: round, lottoDictonary: lottoCorrectDictonary)
 }
 
-checkRoundLottoNumber(round: 2)
+checkRoundLottoNumber(round: 3)
